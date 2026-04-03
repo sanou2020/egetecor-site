@@ -1,0 +1,7 @@
+services:
+  egetecor:
+    build: .
+    container_name: egetecor-site
+    ports:
+      - "5000:80"
+    restart: unless-stopped
