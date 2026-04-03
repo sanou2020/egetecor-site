@@ -1,14 +1,13 @@
 FROM nginx:stable-alpine
 
-# Copier la config nginx
-RUN mkdir -p /etc/nginx/conf.d
-COPY nginx.conf /etc/nginx/nginx.conf
+WORKDIR /usr/share/nginx/html
 
-# Copier les fichiers
-COPY egetecor.html /usr/share/nginx/html/index.html
-COPY *.jpg /usr/share/nginx/html/
-COPY *.png /usr/share/nginx/html/
-COPY *.webp /usr/share/nginx/html/
+COPY egetecor.html ./index.html
+COPY *.jpg ./
+COPY *.png ./
+COPY *.webp ./
+
+COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
